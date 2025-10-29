@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Structure Design & Construction Teams - Government Projects</title>
+<title>Sharma Enterprises | Construction & Structure Design</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; transition: background 0.3s, color 0.3s; overflow-x:hidden; }
@@ -33,23 +33,47 @@ body { background: var(--bg-primary); color: var(--text-primary); }
 
 /* NAVIGATION */
 nav { 
-  display:flex; justify-content:center; 
+  display:flex; justify-content:space-between;
+  align-items: center;
   position: sticky; top:0; z-index:100; 
   box-shadow:0 2px 10px var(--shadow); 
   backdrop-filter: blur(10px); 
   background: rgba(10, 10, 10, 0.95);
   border-bottom:1px solid rgba(255,255,255,0.1);
+  padding: 0 40px;
 }
 [data-theme="light"] nav {
   background: rgba(255,255,255,0.95);
   border-bottom:1px solid rgba(0,0,0,0.1);
 }
+
+/* NAVIGATION LINKS CONTAINER */
 nav ul { display:flex; flex-wrap:wrap; list-style:none; align-items:center; }
 nav li { margin:0; }
-nav a { padding:1rem 1.5rem; font-weight:600; color:var(--text-primary); position:relative; transition:0.3s; display:block; }
+nav a { padding:1rem 1.2rem; font-weight:600; color:var(--text-primary); position:relative; transition:0.3s; display:block; }
 nav a::after { content:''; position:absolute; bottom:0; left:50%; width:0; height:3px; background:var(--accent-color); transition:0.3s; transform:translateX(-50%); }
 nav a:hover::after, nav a.active::after { width:80%; }
 nav a:hover { color: var(--accent-color); }
+
+/* LOGO STYLING */
+nav .logo {
+  /* height: 80px; 
+  width: auto; */
+  object-fit: contain;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+nav .logo:hover {
+  transform: scale(1.05);
+}
+
+/* Center the links within the navigation bar */
+.nav-center-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
 
 /* HEADER */
 header {
@@ -103,6 +127,7 @@ h2::after {
   border-color:var(--accent-color);
   box-shadow:0 20px 50px rgba(37,99,235,0.3);
 }
+.service-link { display: block; }
 .icon { font-size:4rem; margin-bottom:2rem; animation:float 3s ease-in-out infinite; }
 @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-15px);} }
 
@@ -119,7 +144,7 @@ input, textarea, select {
   background:var(--bg-secondary); color:var(--text-primary); font-size:1.05rem; transition:0.3s;
 }
 input:focus, textarea:focus, select:focus {
-  border-color:var(--accent-color); box-shadow:0 0 0 4px rgba(37,99,235,0.2);
+  border-color:var(--accent-color); box-shadow:0 0 0 4px rgba(37,99,235,0.2); outline: none;
 }
 
 /* BUTTON */
@@ -138,9 +163,10 @@ footer {
 
 /* THEME TOGGLE */
 .theme-toggle {
-  margin-left:15px; padding:5px 10px; border-radius:20px; cursor:pointer;
-  display:flex; align-items:center; gap:5px; font-weight:600; font-size:0.75rem;
-  background:var(--bg-secondary); border:1px solid var(--card-border-dark);
+  padding:8px 15px; border-radius:20px; cursor:pointer;
+  display:flex; align-items:center; gap:8px; font-weight:600; font-size:0.85rem;
+  background:var(--bg-secondary); border:2px solid var(--card-border-dark);
+  transition: all 0.3s ease;
 }
 .theme-toggle:hover { border-color:var(--accent-color); transform:scale(1.05); }
 
@@ -157,6 +183,10 @@ footer {
   header p{ font-size:1.1rem; }
   h2{ font-size:2.2rem; }
   .service-card, .team-card { min-height:350px; padding:40px 25px; }
+  nav { flex-wrap: wrap; padding: 15px 20px; }
+  nav .logo { height: 40px; }
+  nav ul { margin-top: 10px; justify-content: center; width: 100%; }
+  .nav-center-container { flex-grow: 0; width: 100%; }
 }
 </style>
 </head>
@@ -165,20 +195,28 @@ footer {
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <nav>
-  <ul>
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#teams">Teams</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><div class="theme-toggle" id="themeToggle"><span id="themeIcon">☀️</span><span id="themeText">Light</span></div></li>
-  </ul>
+<img src="logo1.png" 
+     alt="Sharma Enterprises Logo" 
+     class="logo" 
+     style="transform: scale(1.75); transform-origin: center; height: 120px; width: auto;">
+  
+  <div class="nav-center-container">
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#teams">Teams</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  
+  <div class="theme-toggle" id="themeToggle"><span id="themeIcon">☀️</span><span id="themeText">Light</span></div>
 </nav>
 
 <header id="home">
   <div>
     <h1>Construction & Structure Design</h1>
-    <p>Professional Teams for Government Projects</p>
-    <p>सरकारी परियोजनाओं के लिए पेशेवर टीम</p>
+    <p>Professional Teams for Handling Projects</p>
+    
     <div class="cta-buttons">
       <a href="#services" class="cta-btn primary">Explore Services</a>
       <a href="#contact" class="cta-btn">Get a Quote</a>
@@ -228,11 +266,11 @@ footer {
 <section id="teams" class="container">
   <h2>Our Expert Teams</h2>
   <div class="grid">
-    <div class="team-card"><div class="icon">👩‍💼</div><h3>Manager</h3><p>Diya Gupta</p></div>
+    <div class="team-card"><div class="icon">👩‍💼</div><h3>Manager</h3><p>shivam</p></div>
     <div class="team-card"><div class="icon">🏗️</div><h3>Project Manager</h3><p>Rahul Sharma</p></div>
     <div class="team-card"><div class="icon">🏛️</div><h3>Head Engineer</h3><p>Sunil Kumar</p></div>
     <div class="team-card"><div class="icon">👷</div><h3>Engineer</h3><p>Shivam Sharma</p></div>
-    <div class="team-card"><div class="icon">🔧</div><h3>Technical Engineer</h3><p>Aayush Gupta</p></div>
+    <div class="team-card"><div class="icon">🔧</div><h3>Technical Engineer</h3><p>shivam Gupta</p></div>
   </div>
 </section>
 
@@ -241,16 +279,32 @@ footer {
   <h2>Contact Us</h2>
   <div class="contact-form">
     <form id="contactForm">
-      <div class="form-group"><label>Name / नाम:</label><input type="text" required placeholder="Enter your name"></div>
-      <div class="form-group"><label>Email:</label><input type="email" required placeholder="your.email@example.com"></div>
-      <div class="form-group"><label>Phone / फ़ोन:</label><input type="tel" required placeholder="+91-XXXXXXXXXX"></div>
-      <div class="form-group"><label>Project Type / परियोजना प्रकार:</label>
-        <select required>
-          <option value="">Select Project Type</option>
-          <option>Structure Design</option><option>Construction</option><option>Government Project</option>
-        </select>
+      <div class="form-group">
+          <label>Name / नाम:</label>
+          <input type="text" required name="name" placeholder="Enter your name">
       </div>
-      <div class="form-group"><label>Message / संदेश:</label><textarea rows="5" placeholder="Write your query"></textarea></div>
+      <div class="form-group">
+          <label>Email:</label>
+          <input type="email" required name="email" placeholder="your.email@example.com">
+      </div>
+      <div class="form-group">
+          <label>Phone / फ़ोन:</label>
+          <input type="tel" required name="phone" placeholder="+91-XXXXXXXXXX">
+      </div>
+      <div class="form-group">
+          <label>Project Type / परियोजना प्रकार:</label>
+          <select required name="projectType">
+            <option value="">Select Project Type</option>
+            <option>Structure Design</option>
+            <option>Construction Residential Building</option>
+            <option>Construction Commercial Building</option>
+            <option>Wholesale Cement</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label>Message / संदेश:</label>
+          <textarea rows="5" name="message" placeholder="Write your query"></textarea>
+      </div>
       <button type="submit">Submit / भेजें</button>
     </form>
   </div>
@@ -307,14 +361,40 @@ const obs=new IntersectionObserver(e=>{
 },{threshold:0.3});
 obs.observe(document.querySelector('.stats-section'));
 
-// FORM SIMULATED SUBMIT
-document.getElementById('contactForm').addEventListener('submit',e=>{
-  e.preventDefault();const btn=e.target.querySelector('button');
-  btn.textContent='Sending...';btn.disabled=true;
-  setTimeout(()=>{btn.textContent='✓ Sent!';setTimeout(()=>{btn.textContent='Submit / भेजें';btn.disabled=false;e.target.reset();},2000);},1500);
+// FORM SUBMIT
+document.getElementById('contactForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const formData = new FormData(e.target);
+  
+  try {
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    
+    const response = await fetch('http://localhost:5000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(Object.fromEntries(formData))
+    });
+    
+    if (!response.ok) throw new Error('Submission failed');
+    
+    btn.textContent = '✓ Sent!';
+    e.target.reset();
+  } catch (error) {
+    btn.textContent = '❌ Failed';
+    console.error('Submission error:', error);
+  } finally {
+    setTimeout(() => {
+      btn.textContent = 'Submit / भेजें';
+      btn.disabled = false;
+    }, 2000);
+  }
 });
 
-// RIPPLE EFFECT ON CLICK (works with links)
+// RIPPLE EFFECT ON CLICK
 document.querySelectorAll('.service-card, .team-card').forEach(card=>{
   card.addEventListener('click',e=>{
     const r=document.createElement('span');const rect=card.getBoundingClientRect();
